@@ -12,16 +12,15 @@ function ButtonMenu({ handleClick }) {
 }
 
 // button booking now
-function ButtonPrimary({ mobile = false }) {
+function ButtonPrimary({ mobile = false, content, icon }) {
   return (
     <a
       href="#"
       className={`
          ${mobile ? "flex mt-4 " : "hidden md:inline-flex"}
-         items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-[var(--primary-color)] hover:opacity-60 rounded-full transition-colors group"
+        gap-2   items-center rounded-full border border-white/10 bg-[var(--primary-color)] px-6 py-3 text-sm font-medium text-white shadow-lg backdrop-blur transition-all hover:scale-105  hover:bg-[var(--primary-color)]/80 "
       `}>
-      Book now
-      <ArrowRight />
+      {icon} {content}
     </a>
   );
 }
