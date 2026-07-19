@@ -12,13 +12,11 @@ function ButtonMenu({ handleClick }) {
 }
 
 // button booking now
-function ButtonPrimary({ mobile = false, content, icon }) {
+function ButtonPrimary({ content, icon, className = "" }) {
   return (
     <a
       href="#"
-      className={`
-         ${mobile ? "flex mt-4 " : "hidden md:inline-flex"}
-        gap-2   items-center rounded-full border border-white/10 bg-[var(--primary-color)] px-6 py-3 text-sm font-medium text-white shadow-lg backdrop-blur transition-all hover:scale-105  hover:bg-[var(--primary-color)]/80 "
+      className={`${className} flex  gap-2  justify-center items-center rounded-full border border-white/10  px-6 py-3 text-sm font-semibold text-[var(--primary-color)] shadow-lg backdrop-blur transition-all hover:scale-105  "
       `}>
       {icon} {content}
     </a>

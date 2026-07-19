@@ -1,7 +1,7 @@
-import { ArrowRight, Bookmark } from "lucide-react";
-import Navbar from "../components/Navbar";
+import { Bookmark } from "lucide-react";
 import { useState } from "react";
-import { useEffect } from "react";
+
+import Navbar from "../components/Navbar";
 import { ButtonPrimary, ButtonMenu } from "../components/Button";
 
 export default function Header() {
@@ -12,26 +12,40 @@ export default function Header() {
   };
 
   return (
-    <header className="flex items-center justify-between py-4 px-2 max-w-7xl mx-auto  bg-white fixed z-50 w-full">
-      <div className="flex items-center pl-4">
-        <span className="text-xl font-bold text-[var(--primary-color)] tracking-tight">
-          Jasa Ac Garut
-        </span>
-      </div>
-      <Navbar />
+    <header className="fixed top-0 left-0 z-50 w-full bg-white shadow-sm">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
+        {/* Logo */}
+        <div>
+          <span
+            className="text-xl font-bold tracking-tight text-[var(--primary-color)]"
+            style={{ fontFamily: "var(--font-heading)" }}>
+            Jasa Ac Garut
+          </span>
+        </div>
 
-      {/* button cta primary */}
-      <ButtonPrimary
-        content={"Booking Sekarang"}
-        icon={<Bookmark size={16} />}
-      />
-      <ButtonMenu handleClick={handleClick} />
-      {hamburgerMenu && (
-        <div className="absolute top-15 left-0 w-full bg-white shadow-lg p-4 md:hidden">
-          <Navbar mobile />
+        {/* Navbar Desktop */}
+        <Navbar />
+
+        {/* Right Side */}
+        <div className="flex items-center gap-3">
           <ButtonPrimary
-            mobile
-            content={"Booking Sekarang"}
+            className="hidden lg:flex bg-[var(--secondary-color)]"
+            content="Booking Sekarang"
+            icon={<Bookmark size={16} />}
+          />
+
+          <ButtonMenu className="flex lg:hidden" handleClick={handleClick} />
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {hamburgerMenu && (
+        <div className="border-t bg-white p-4 md:hidden">
+          <Navbar mobile />
+
+          <ButtonPrimary
+            className="flex mt-4 md:hidden bg-[var(--secondary-color)]"
+            content="Booking Sekarang"
             icon={<Bookmark size={16} />}
           />
         </div>

@@ -6,7 +6,7 @@ export default function Navbar({ mobile = false }) {
     <a
       key={item.id}
       href={item.link}
-      className="text-gray-800 hover:text-black font-medium text-sm border-b-2 border-transparent hover:border-black pb-1 transition-all">
+      className="text-gray-800 hover:text-black font-medium text-sm border-b-2 border-transparent hover:border-black pb-1 transition-all ">
       {item.contentNav}
     </a>
   ));

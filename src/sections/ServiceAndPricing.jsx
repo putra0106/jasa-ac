@@ -1,97 +1,44 @@
+import { ButtonPrimary } from "../components/Button";
+import PricingCard from "../components/PricingCard";
+import TitleSection from "../components/titleSection";
+import { services } from "../data/content";
+
 export default function ServiceAndPricing() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 items-stretch">
-      <div className="bg-white rounded-3xl p-8 border border-slate-100 shadow-lg flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-        <div>
-          <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">
-            Starter
+    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8 font-sans flex items-center flex flex-col">
+      <div className="relative text-center max-w-2xl mx-auto mb-10">
+        {/* Gradient Hitam */}
+        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-72 h-40 bg-gradient-to-b from-black/10 to-transparent blur-3xl"></div>
+        <TitleSection
+          titleSection={"Service And Pricing"}
+          colorTitleSection="greyColor"
+        />
+        <h1
+          className="relative text-3xl md:text-4xl font-extrabold text-[var(--primary-color)] my-4 tracking-tight "
+          style={{ fontFamily: "var(--font-heading)" }}>
+          Harganya Jelas, <br className="sm:hidden" />
+          <span
+            className="text-[var(--secondary-color)]"
+            style={{ fontFamily: "var(--font-heading)" }}>
+            Gak Pake Ditembak
           </span>
-          <div className="flex items-baseline mb-1">
-            <span className="text-4xl font-extrabold text-slate-900 tracking-tight">
-              Free
-            </span>
-          </div>
-          <span className="text-xs text-slate-400 block mb-8">Forever</span>
+        </h1>
+        <p className="text-slate-600 text-base md:text-lg">
+          Nanti teknisi kami cek dulu AC kamu dan kasih tahu total biayanya.
+          Kalau setuju, baru dikerjain.
+          <span className="font-bold"> Tanpa Biaya Tersembunyi!</span>
+        </p>
+      </div>
 
-          <ul className="space-y-4 text-sm text-slate-600">
-            <li className="flex items-center gap-3">
-              <svg
-                className="w-4 h-4 text-emerald-500 shrink-0"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Full library access</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <svg
-                className="w-4 h-4 text-emerald-500 shrink-0"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>5 assets / mo</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <svg
-                className="w-4 h-4 text-emerald-500 shrink-0"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Regular updates</span>
-            </li>
-            <li className="flex items-center gap-3 text-slate-300">
-              <svg
-                className="w-4 h-4 text-slate-300 shrink-0"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-              <span className="line-through">Desktop and mobile</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <svg
-                className="w-4 h-4 text-emerald-500 shrink-0"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Premium support</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="mt-8">
-          <button className="w-full py-3 px-4 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm tracking-wide transition-colors duration-200">
-            Join now
-          </button>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 items-stretch">
+        {services.map((service, index) => (
+          <PricingCard
+            key={index}
+            title={service.title}
+            price={service.price}
+            description={service.description}
+          />
+        ))}
       </div>
     </div>
   );
